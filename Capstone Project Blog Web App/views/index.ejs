@@ -1,15 +1,43 @@
 <%- include("partials/header.ejs") %>
-<body>
-    <h1>Share your first post:</h1>
-    <form action="/submit" method="post">
-        <label for="name">Blog's Name</label>
-        <input type="text" name="blogName">
-        <label for="blog">Blog</label>
-        <input type="text" name="blog">
-    </form>
-
-
-
-    
-
+<body class="blur">
+    <% if (Blogs && Blogs.length > 0) { %>  <!-- Check if Blogs array is not empty -->
+        <%- include("blogs.ejs") %>
+    <% } else { %>
+        <h1 class="title">Share Your First Blog Here!</h1>
+        <form action="/" method="post">
+            <label for="name">Blog's Name</label>
+            <input type="text" name="blogName" required>
+            
+            <label for="blog">Blog's Content</label>
+            <textarea name="blog" required></textarea>
+            
+            <button type="submit">Submit</button>
+        </form>
+    <% } %>
+    <div class="new-blog-module">
+        <form action="/" method="post">
+            <label for="name">Blog's Name</label>
+            <input type="text" name="blogName" class="blog-name-input" reaquired>
+            
+            <label for="blog">Blog's Content</label>
+            <textarea name="blog" class="blog-content-input" required></textarea>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="edit-blog-module">
+        <form action="/" method="post">
+            <label for="name">Blog's Name</label>
+            <input type="text" name="blogName" class="blog-name-input" reaquired>
+            
+            <label for="blog">Blog's Content</label>
+            <textarea name="blog" class="blog-content-input" required></textarea>
+            
+            <div>
+                <button type="submit">Save</button>
+                <button type="submit">Delete</button>
+            </div>
+        </form>
+    </div>
+    <script src="/scripts/index1.js"></script>
 </body>

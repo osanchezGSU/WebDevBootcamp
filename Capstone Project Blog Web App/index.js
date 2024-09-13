@@ -7,21 +7,29 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const port = 3000;
 const app = express();
 
+
+let Blogs = [];
+
+app.set('view engine', 'ejs');
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get("/", (req, res) => {
-    res.render(__dirname + "/views/index.ejs");
+    res.render("index", { Blogs: Blogs });
 })
 
-app.post("/submit", (req, res) => {
-    blog.blogName = req.body["blogName"];
-    blog.blogContent = req.body[""]
+app.post("/", (req, res) => {
+    const newBlog = 
+        {blogName: req.body["blogName"],
+        blog: req.body["blog"]};
+    Blogs.push(newBlog);
+    res.redirect("/")
 })
 
 app.listen(port, () => {
     console.log(`Listening to port ${port}`);
 })
 
-const blog = new Object();
+
+
 

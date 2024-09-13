@@ -1,0 +1,16 @@
+<%- include("partials/header.ejs") %>
+<div class="blogs-container">
+    <div class="header">
+        <h1 class="title">Your Recent Blogs</h1>
+        <button class="new-blog-button">Post New Blog</button>
+    </div>
+<ul>
+    <% Blogs.forEach(blog => { %>
+        <li class="blog">
+                <h1 class="blogs-name"><%= blog.blogName %></h1>
+                <p class="blogs-content"><%= blog.blog %></p>
+        </li>
+    <% }) %>
+</ul>
+
+</div>
