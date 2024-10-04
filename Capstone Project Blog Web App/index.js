@@ -24,12 +24,33 @@ app.post("/", (req, res) => {
         blog: req.body["blog"]};
     Blogs.push(newBlog);
     res.redirect("/")
+});
+
+app.post("/edit", (req, res) => {
+
+    switch(req.body.choice){
+        case "save":
+            saveBlog(req.body["blogName"], req.body["blog"]);
+            break;
+        default: 
+            deleteBlog(req.body["blogName"], req.body["blog"]);
+    }
+    res.redirect("/")
 })
+
+
 
 app.listen(port, () => {
     console.log(`Listening to port ${port}`);
 })
 
-
-
+function saveBlog(blogName, blogContent){
+    const blogIndex = Blogs.findIndex(blog => blog.blogName === blogName);
+    if (blogIndex !== -1) {
+        Blogs[blogIndex].blog = blogContent;
+    }
+}
+function deleteBlog(blogName, blogContent){
+    Blogs = Blogs.filter(blog => blog.blogName !== blogName); 
+}
 

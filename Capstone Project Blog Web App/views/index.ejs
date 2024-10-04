@@ -26,16 +26,16 @@
         </form>
     </div>
     <div class="edit-blog-module">
-        <form >
+        <form method="post" action="/edit">
             <label for="name">Blog's Name</label>
-            <input type="text" name="blogName" class="blog-name-input" reaquired>
+            <input type="text" name="blogName" class="blog-name-input" readonly>
             
             <label for="blog">Blog's Content</label>
             <textarea name="blog" class="blog-content-input" required></textarea>
             
             <div>
-                <button class="save-button" type="submit">Save</button>
-                <button class="delete-button">Delete</button>
+                <button type="submit" value="save" name="choice" >Save</button>
+                <button type="submit" value="delete" name="choice">Delete</button>
             </div>
         </form>
     </div>

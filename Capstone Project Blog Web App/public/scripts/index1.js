@@ -13,25 +13,9 @@ blogs.forEach((blog) => {
         editModule.classList.add("open");
         editModule.querySelector(".blog-name-input").value = blogName;
         editModule.querySelector(".blog-content-input").value = blogContent;
-        editProcedure(blog);
-
     })
 })
 
-let editModuleButtons = editModule.querySelectorAll("button");
-
-let editProcedure = (blog) => {
-    editModuleButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            if(button.classList.contains("delete-button")){
-                console.log(button.classList);
-                blog.remove();
-                editModule.classList.remove("open");
-                
-            }
-        })
-    })
-}
 
 
 
